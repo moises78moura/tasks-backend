@@ -13,7 +13,7 @@ public class DateUtilsTest {
 	@Test
 	public void deveRetornarTrueParaDatasFuturas() {
 		LocalDate data = LocalDate.of(2030, 01, 01);
-		assertTrue(DateUtils.isEqualOrFutureDate(data));
+		assertFalse(DateUtils.isEqualOrFutureDate(data));
 	}
 	
 	@Test
