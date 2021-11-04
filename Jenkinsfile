@@ -34,5 +34,11 @@ pipeline{
                 deploy adapters: [tomcat8(credentialsId: 'tomcat_login', path: '', url: 'http://localhost:8081/')], contextPath: 'tasks-backend', war: 'target\\tasks-backend.war'
             }
         }
+        stage('API Tests'){
+            steps{
+                git branch: 'main', credentialsId: 'github_login', url: 'https://github.com/moises78moura/tasks-api-test'
+                bat 'mvn test'
+            }
+        }
     }
 }
